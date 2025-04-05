@@ -112,6 +112,29 @@
     iframe.box {
       overflow: hidden;
     }
+
+    #games {
+      position: relative;
+      padding: 10px 20px;
+      color: white;
+      background: blue;
+      border-radius: 10px;
+      box-shadow: 0 0 15px 5px blue;
+      animation: glow 1.5s infinite;
+      cursor: pointer;
+    }
+
+    @keyframes glow {
+      0% {
+        box-shadow: 0 0 15px 5px blue;
+      }
+      50% {
+        box-shadow: 0 0 25px 10px lightblue;
+      }
+      100% {
+        box-shadow: 0 0 15px 5px blue;
+      }
+    }
   </style>
 </head>
 <body>
@@ -137,7 +160,7 @@
       Battery: <span id="battery"></span>
     </div>
     <div id="flashing-line">Scroll down!</div>
-    <div id="games" onclick="window.open('ceritus.github.io/enter', '_blank');">Play Games</div>
+    <div id="games" onclick="window.open(window.location.href + '/enter', '_blank');">Play Games</div>
   </div>
 
   <div class="box-container">
