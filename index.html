@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ceritus</title>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(to bottom, aqua, white, yellow, gold, silver, orange, green);
+      overflow-x: hidden;
+      font-family: 'Comic Sans MS', sans-serif;
+      color: #000;
+    }
+
+    #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    #banner {
+      background: rgba(0, 0, 0, 0.1);
+      padding: 10px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
+
+    #banner a {
+      text-decoration: none;
+      color: #000;
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    .content-wrapper {
+      position: relative;
+      margin-top: 150px;
+      text-align: center;
+    }
+
+    .title {
+      font-size: 3rem;
+    }
+
+    .subtitle {
+      margin-top: 10px;
+      font-size: 1.2rem;
+    }
+
+    #flashing-line {
+      margin: 10px auto;
+      font-size: 1.5rem;
+      color: #ff0000;
+      animation: flash 1s infinite;
+    }
+
+    @keyframes flash {
+      0%, 50% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+
+    #search-bar {
+      margin: 20px auto;
+      padding: 10px;
+      border: 2px solid #00ff00;
+      width: 300px;
+      border-radius: 25px;
+      box-shadow: 0 0 15px 5px #00ff00;
+      cursor: pointer;
+    }
+
+    #search-bar:hover {
+      box-shadow: 0 0 20px 10px #00ff00;
+    }
+
+    .box-container {
+      margin-top: 250px; /* Moved slightly higher */
+      display: flex;
+      justify-content: space-around;
+      padding: 0 10%;
+    }
+
+    .box {
+      flex: 1;
+      height: 150px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px 5px #00ff00;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: black;
+    }
+
+    iframe.box {
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <div id="particles-js"></div>
+
+  <div id="banner">
+    <a href="https://sites.google.com/view/v-hubts">V-Hub.TS</a>
+    <a href="https://sites.google.com/view/v-hubts/vhub-network">VHub Network</a>
+    <a href="https://vitaanatis.github.io/">VitaAnatis</a>
+    <a href="https://sites.google.com/view/kduck/px">Proxy</a>
+    <a href="mailto:a583709.v@gmail.com">Email</a>
+    <a href="https://sites.google.com/view/kduck/downloads/a683/id-a683-vhubts">Downloads</a> <!-- Added Downloads button -->
+  </div>
+
+  <div class="content-wrapper">
+    <div class="title">Ceritus</div>
+    <div class="subtitle">
+      Made by A683<br>
+      a583709.v@gmail.com<br>
+      
+      NEWEST UPDATE: Created Ceritus<br>
+      Time: <span id="time"></span><br>
+      Battery: <span id="battery"></span>
+    </div>
+    <div id="flashing-line">Scroll down!</div>
+    <div id="games" onclick="window.open('ceritus.github.io/enter', '_blank');">Play Games</div>
+  </div>
+
+  <div class="box-container">
+    <div class="box">Blank Advertisement</div>
+    <iframe class="box" src="https://v-hubts.github.io/aboutblank" frameborder="0"></iframe>
+  </div>
+
+  <script>
+    // Initialize particles.js
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 100 },
+        color: { value: "#00ff00" },
+        shape: { type: "circle" },
+        opacity: { value: 0.6 },
+        size: { value: 3 },
+        line_linked: { enable: true, distance: 100, color: "#0000ff", opacity: 0.4, width: 1 },
+        move: { enable: true, speed: 2 }
+      },
+      interactivity: { detect_on: "canvas", events: { onhover: { enable: false }, onclick: { enable: false } } },
+      retina_detect: true
+    });
+
+    // Extract time
+    document.getElementById('time').textContent = new Date().toLocaleTimeString();
+
+    // Extract battery
+    navigator.getBattery().then(battery => {
+      document.getElementById('battery').textContent = `${Math.floor(battery.level * 100)}%`;
+    });
+  </script>
+</body>
+</html>
